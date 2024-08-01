@@ -5,8 +5,11 @@
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <uses-permission android:name="android.permission.VIBRATE"/>
   <!-- These require runtime permissions on M -->
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  +   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  +   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  +   <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:requestLegacyExternalStorage="true" />
   <!-- END OPTIONAL PERMISSIONS -->
 
   <queries>
@@ -17,6 +20,12 @@
       <data android:scheme="https" />
     </intent>
   </queries>
+
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+    +           <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+  </intent-filter>
 
   <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme">
     <activity android:name=".MainActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true">
